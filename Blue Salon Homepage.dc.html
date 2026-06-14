@@ -433,7 +433,7 @@
 <div style="background:#ffffff; overflow-x:clip;">
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div style="background:#f6efe3; text-align:center; padding:9px 16px; border-bottom:1px solid rgba(194,162,94,.16);">
+  <div style=" text-align:center; padding:9px 16px; border-bottom:1px solid rgba(194,162,94,.16);">
     <span style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#003976;">Split your payment into 4 installments &nbsp;·&nbsp; Free shipping above QAR 499</span>
   </div>
 
@@ -616,7 +616,7 @@
           <sc-for list="{{ arrivals }}" as="p" hint-placeholder-count="3">
             <div>
               <div class="bs-media-card" style="position:relative; display:block; height:300px; overflow:hidden; background:{{ p.tone }};">
-                <image-slot id="{{ p.slotId }}" fit="cover" shape="rect" placeholder="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+                <image-slot id="{{ p.slotId }}" src="{{ p.image }}" fit="cover" shape="rect" placeholder="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
               </div>
               <div style="display:flex; align-items:center; justify-content:space-between; margin-top:16px;">
                 <p style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#16273b; margin:0;">{{ p.name }}</p>
@@ -685,7 +685,7 @@
         <sc-for list="{{ trending }}" as="p" hint-placeholder-count="3">
           <div>
             <div class="bs-media-card" style="position:relative; display:block; height:400px; overflow:hidden; background:{{ p.tone }};">
-              <image-slot id="{{ p.slotId }}" fit="cover" shape="rect" placeholder="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+              <image-slot id="{{ p.slotId }}" src="{{ p.image }}" fit="cover" shape="rect" placeholder="{{ p.name }}" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
             </div>
             <div style="display:flex; align-items:center; justify-content:space-between; margin-top:18px;">
               <p style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#16273b; margin:0;">{{ p.name }}</p>
@@ -860,15 +860,15 @@ class Component extends DCLogic {
     ];
 
     const arrivals = [
-      { slotId: 'arr-1', name: 'Miriam Pump',  price: 'QAR 5,700', swatches: ['#bcae9a', '#3a3a3a', '#7a5230'], extra: '+1', tone: '#f4f3f1' },
-      { slotId: 'arr-2', name: 'Miriam Pump',  price: 'QAR 4,500', swatches: ['#2a2a2a', '#8a98a6', '#c9bfa8'], extra: '+1', tone: '#f4f3f1' },
-      { slotId: 'arr-3', name: 'Marlene Pump', price: 'QAR 4,100', swatches: ['#cdb98f', '#1f1f1f', '#6b6b6b'], extra: '',   tone: '#f4f3f1' },
+      { slotId: 'arr-1', name: 'Miriam Pump',  price: 'QAR 5,700', swatches: ['#bcae9a', '#3a3a3a', '#7a5230'], extra: '+1', tone: '#f4f3f1', image: 'assets/fashion-shoes.jpg' },
+      { slotId: 'arr-2', name: 'Miriam Pump',  price: 'QAR 4,500', swatches: ['#2a2a2a', '#8a98a6', '#c9bfa8'], extra: '+1', tone: '#f4f3f1', image: 'assets/fashion-bag.jpg' },
+      { slotId: 'arr-3', name: 'Marlene Pump', price: 'QAR 4,100', swatches: ['#cdb98f', '#1f1f1f', '#6b6b6b'], extra: '',   tone: '#f4f3f1', image: 'assets/fashion-women.jpg' },
     ];
 
     const trending = [
-      { slotId: 'trd-1', name: 'Love Diamond Necklace', price: 'QAR 18,500', swatches: ['#caa96a', '#b08d57', '#3a3a3a'], extra: '',   tone: '#f1f1ef' },
-      { slotId: 'trd-2', name: 'Aventus Eau de Parfum', price: 'QAR 1,350',  swatches: ['#1f1f1f'],                       extra: '',   tone: '#f1f1ef' },
-      { slotId: 'trd-3', name: 'Magic Cream Moisturiser', price: 'QAR 465',  swatches: ['#e7d3c4', '#d9b8a0'],            extra: '+2', tone: '#f1f1ef' },
+      { slotId: 'trd-1', name: 'Love Diamond Necklace', price: 'QAR 18,500', swatches: ['#caa96a', '#b08d57', '#3a3a3a'], extra: '',   tone: '#f1f1ef', image: 'assets/section-jewellery.jpg' },
+      { slotId: 'trd-2', name: 'Aventus Eau de Parfum', price: 'QAR 1,350',  swatches: ['#1f1f1f'],                       extra: '',   tone: '#f1f1ef', image: 'assets/section-beauty.jpg' },
+      { slotId: 'trd-3', name: 'Magic Cream Moisturiser', price: 'QAR 465',  swatches: ['#e7d3c4', '#d9b8a0'],            extra: '+2', tone: '#f1f1ef', image: 'assets/beauty header.avif' },
     ];
 
     const sr = "font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;";
@@ -904,40 +904,40 @@ class Component extends DCLogic {
           {title:'Bags', links:['Totes','Shoulder Bags','Clutches','Mini Bags']},
           {title:'Shoes', links:['Heels','Flats','Sneakers','Boots']},
           {title:'Accessories', links:['Fine Jewellery','Sunglasses','Scarves','Belts']},
-        ], feat:{eyebrow:'Featured', title:'The Summer Edit', cta:'Discover', tone:'#e9dfd0', ctaColor:'#16273b', image:'assets/fashion-women.jpg', alt:'Close up fashion edit for women'} },
+        ], feat:{eyebrow:'Featured', title:'The Summer Edit', cta:'Discover', tone:'#e9dfd0', ctaColor:'#16273b', image:'assets/women header.webp', alt:'Close up fashion edit for women'} },
       { key:'men', label:'Men', color:'#16273b',
         columns:[
           {title:'Clothing', links:['Shirts','Knitwear','Tailoring','Outerwear','Trousers']},
           {title:'Shoes', links:['Loafers','Sneakers','Boots','Formal']},
           {title:'Accessories', links:['Bags','Belts','Watches','Sunglasses']},
           {title:'Grooming', links:['Fragrance','Skincare','Shaving']},
-        ], feat:{eyebrow:'Featured', title:'Modern Tailoring', cta:'Discover', tone:'#dcd3c4', ctaColor:'#16273b', image:'assets/fashion-belt.jpg', alt:'Close up leather accessory for men'} },
+        ], feat:{eyebrow:'Featured', title:'Modern Tailoring', cta:'Discover', tone:'#dcd3c4', ctaColor:'#16273b', image:'assets/men header.avif', alt:'Close up leather accessory for men'} },
       { key:'beauty', label:'Beauty', color:'#16273b',
         columns:[
           {title:'Skincare', links:['Moisturisers','Serums','Cleansers','Masks']},
           {title:'Makeup', links:['Face','Eyes','Lips','Tools']},
           {title:'Fragrance', links:['Women','Men','Home','Discovery Sets']},
           {title:'Hair & Body', links:['Hair Care','Bath & Body','Wellness']},
-        ], feat:{eyebrow:'New', title:'The Fragrance Wardrobe', cta:'Explore', tone:'#efe6d8', ctaColor:'#16273b', image:'assets/section-beauty.jpg', alt:'Close up luxury beauty and fragrance'} },
-      { key:'jewellery', label:'Jewellery', color:'#16273b',
+        ], feat:{eyebrow:'New', title:'The Fragrance Wardrobe', cta:'Explore', tone:'#efe6d8', ctaColor:'#16273b', image:'assets/beauty header.avif', alt:'Close up luxury beauty and fragrance'} },
+      { key:'luggage', label:'Luggage', color:'#16273b',
         columns:[
-          {title:'Categories', links:['Necklaces','Rings','Bracelets','Earrings']},
-          {title:'Collections', links:['Fine Jewellery','High Jewellery','Bridal','Diamonds']},
-          {title:'Watches', links:['Women','Men','New Arrivals','Pre-Owned']},
-        ], feat:{eyebrow:'Iconic', title:'High Jewellery', cta:'Discover', tone:'#e8d8c2', ctaColor:'#16273b', image:'assets/section-jewellery.jpg', alt:'Close up high jewellery pieces'} },
+          {title:'Travel', links:['Carry On','Check In','Weekend Bags','Trolleys']},
+          {title:'Bags', links:['Tote Bags','Shoulder Bags','Crossbody','Backpacks']},
+          {title:'Accessories', links:['Wallets','Luggage Tags','Travel Organizers','Pouches']},
+        ], feat:{eyebrow:'Essential', title:'The Travel Edit', cta:'Discover', tone:'#e8d8c2', ctaColor:'#16273b', image:'assets/luggage header.webp', alt:'Close up luxury luggage and travel bag'} },
       { key:'kids', label:'Kids', color:'#16273b',
         columns:[
           {title:'Baby', links:['0\u201312 Months','Clothing','Gifts','Nursery']},
           {title:'Girls', links:['Clothing','Shoes','Accessories']},
           {title:'Boys', links:['Clothing','Shoes','Accessories']},
           {title:'More', links:['Toys','Books','Gift Sets']},
-        ], feat:{eyebrow:'Gifting', title:'Little Luxuries', cta:'Shop kids', tone:'#e4ebe6', ctaColor:'#16273b', image:'assets/section-gifts.jpg', alt:'Close up gifts for kids'} },
-      { key:'brands', label:'Brands', color:'#16273b',
+        ], feat:{eyebrow:'Gifting', title:'Little Luxuries', cta:'Shop kids', tone:'#e4ebe6', ctaColor:'#16273b', image:'assets/kids header.avif', alt:'Close up gifts for kids'} },
+      { key:'gourmet', label:'Gourmet', color:'#16273b',
         columns:[
-          {title:'Featured', links:['Valentino','Saint Laurent','Loro Piana','Cartier']},
-          {title:'Trending', links:['Bottega Veneta','Prada','Jimmy Choo','Messika']},
-          {title:'Explore', links:['All Brands A\u2013Z','New Designers','Exclusives','The Houses']},
-        ], feat:{eyebrow:'Our Portfolio', title:'500+ Luxury Houses', cta:'View all brands', tone:'#eae3d6', ctaColor:'#16273b', image:'assets/stage-campaign.jpg', alt:'Close up luxury brand campaign'} },
+          {title:'Food', links:['Tea & Coffee','Snacks','Pantry','Breakfast']},
+          {title:'Gifts', links:['Chocolate Boxes','Gift Hampers','Sweet Treats','Seasonal Picks']},
+          {title:'Explore', links:['All Gourmet','New Arrivals','Exclusives','The Houses']},
+        ], feat:{eyebrow:'Curated', title:'Gourmet Delights', cta:'View all', tone:'#eae3d6', ctaColor:'#16273b', image:'assets/gourmet header.avif', alt:'Close up gourmet and home lifestyle edit'} },
       { key:'sale', label:'Sale', color:'#c0392f',
         columns:[
           {title:'Shop Sale', links:['Women','Men','Beauty','Jewellery']},
